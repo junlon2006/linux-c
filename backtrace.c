@@ -6,8 +6,8 @@
 #define SIZE 100
 
 void __frame3(void) {
-  int j, nptrs;
-  void *buffer[100];
+  int i, nptrs;
+  void *buffer[SIZE];
   char **strings;
   nptrs = backtrace(buffer, SIZE);
   printf("backtrace() returned %d addresses\n", nptrs);
@@ -18,8 +18,8 @@ void __frame3(void) {
     perror("backtrace_symbols");
     exit(EXIT_FAILURE);
   }
-  for (j = 0; j < nptrs; j++) {
-    printf("%s\n", strings[j]);
+  for (i = 0; i < nptrs; i++) {
+    printf("%s\n", strings[i]);
   }
   free(strings);
 }
