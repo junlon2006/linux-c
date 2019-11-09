@@ -1,0 +1,3 @@
+gcc -fPIC -shared -o libmemcheck.so memcheck.c -I.
+gcc -g -o demo demo.c -lmemcheck -L.
+./demo
