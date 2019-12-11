@@ -37,7 +37,6 @@ static void* __p(void *args) {
         __sem_p(semId);
         __sync_fetch_and_add(&p_count, 1);
         printf("%s[%0x]: count=%d\n", __FUNCTION__, (u_int32_t)pthread_self(), p_count);
-        usleep(1000 * 1000);
     }
 
     return NULL;
