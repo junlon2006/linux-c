@@ -8,7 +8,7 @@ static int __n_tu(int number, int count) {
 }
 
 /*** Convert float to string ***/
-void float_to_string(float f, char r[]) {
+static void __float_to_string(float f, char r[]) {
   long long int length, length2, i, number, position, sign;
   float number2;
 
@@ -51,10 +51,15 @@ void float_to_string(float f, char r[]) {
   }
 }
 
+/* Thread unsafe 线程不安全函数，有效精度8位（包含整数和小数部分），超过不能保证准确性 */
+const char* float_to_string(float f) {
+    static char floatBuf[128];
+    __float_to_string(f, floatBuf);
+    return floatBuf;
+}
+
 int main() {
-  float a = -0.121345;
-  char buf[64];
-  float_to_string(a, buf);
-  printf("%s\n", buf);
+  printf("%s\n", float_to_string(-0.23456));
+  printf("%s\n", float_to_string(-1111.12345678));
   return 0;
 }
