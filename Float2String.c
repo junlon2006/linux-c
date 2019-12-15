@@ -63,15 +63,15 @@ const char* float_to_string(float f) {
 
 #define EPSION      (0.001)
 int main(int argc, char *argv[]) {
-    float f = -100;
-    int count = 0;
-    while (f <= 100) {
-        float nf = strtof(float_to_string(f += EPSION), NULL);
-        if (fabsf(nf - f) > 0.002) {
-            printf("ERROR: f=%f, nf=%f\n", f, nf);
-        }
-        count++;
+  float f = -100;
+  int count = 0;
+  while (f <= 100) {
+    float nf = strtof(float_to_string(f += EPSION), NULL);
+    if (fabsf(nf - f) > 0.002) {
+      printf("ERROR: f=%f, nf=%f\n", f, nf);
     }
-    printf("count=%d\n", count);
-    return 0;
+    count++;
+  }
+  printf("count=%d\n", count);
+  return 0;
 }
