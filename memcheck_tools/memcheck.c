@@ -52,7 +52,7 @@ static void __init_memcheck() {
 }
 
 static unsigned int __get_align4_size(unsigned int size) {
-    return ((size >> 2) + 1) << 2;
+    return ((size + (4 - 1)) & ~(4 - 1));
 }
 
 void* uni_memcheck_malloc(const char *file, const char *function, int line, unsigned int len) {
