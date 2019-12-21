@@ -44,7 +44,7 @@ static int __hashcode(int key, int size) {
     if (key < 0) {
         key = 0 - key;
     }
-    return key & (size - 1);
+    return key % size;
 }
 
 static void __destroy_hashmap(node **n, int size) {
