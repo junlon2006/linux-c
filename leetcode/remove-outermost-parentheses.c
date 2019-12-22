@@ -49,7 +49,7 @@ char * removeOuterParentheses(char * S){
     while ((c = *S++) != '\0') {
         if (c == '(') l_cnt++;
         else r_cnt++;
-        if (l_cnt == 1 || (l_cnt == r_cnt && l_cnt != 1)) {
+        if (l_cnt == 1 || (l_cnt == r_cnt && l_cnt != 0)) {
             if ((l_cnt == r_cnt && l_cnt != 0)) {
                 l_cnt = r_cnt = 0;
             }
