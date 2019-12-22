@@ -15,5 +15,5 @@
 **/
 
 bool canWinNim(int n) {
-    return (n <= 3 || !((n & 3) == 0));  //等价于 return n % 4;
+    return (n <= 3 || !((n & 3) == 0));  //等价于 return (n % 4 != 0);
 }
