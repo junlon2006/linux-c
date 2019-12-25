@@ -166,20 +166,3 @@ void uni_memcheck_free(const char *file, const char *function, int line, void *a
 
     free(p - sizeof(MemcheckHeader));
 }
-
-#define ALLOC_SIZE  (1024 * 1024 - 100)
-int main() {
-    int count = 0;
-
-    char *buf = (char *)uni_malloc(4097);
-    buf = (char *)uni_malloc(1111);
-    buf = (char *)uni_malloc(64);
-    buf = (char *)uni_malloc(128);
-    buf = (char *)uni_malloc(256);
-
-    while (1) {
-        usleep(1000 * 1000 * 10);
-    }
-
-    return 0;
-}
